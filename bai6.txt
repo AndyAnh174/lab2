@@ -1,0 +1,28 @@
+b)// Hàm để so sánh và trả về điểm lớn hơn giữa hai điểm
+Function maxPoint(p1, p2):
+    maxP.x = max(p1.x, p2.x)  // Lấy giá trị lớn nhất của hai điểm theo trục x
+    maxP.y = max(p1.y, p2.y)  // Lấy giá trị lớn nhất của hai điểm theo trục y
+    return maxP
+
+// Hàm để tìm điểm lớn nhất trong một tập hợp điểm bằng cách chia để trị
+Function findMax(points, left, right):
+    // Trường hợp cơ bản: Nếu chỉ có một điểm
+    If left equals right:
+        Return points[left]  // Trả về điểm duy nhất
+    End If
+
+    // Chia mảng thành hai phần bằng cách tính chỉ số trung bình
+    mid = left + (right - left) / 2
+
+    // Tìm điểm lớn nhất trong nửa trái và nửa phải của mảng
+    maxLeft = findMax(points, left, mid)
+    maxRight = findMax(points, mid + 1, right)
+
+    // Tìm điểm lớn nhất giữa hai điểm lớn nhất của hai nửa mảng
+    maxPoint = maxPoint(maxLeft, maxRight)
+    Return maxPoint
+
+// Ví dụ sử dụng:
+points = [ {1, 2}, {5, 3}, {7, 8}, {4, 6}, {9, 1} ]  // Tập hợp các điểm
+maxPoint = findMax(points, 0, points.size() - 1)  // Tìm điểm lớn nhất trong tập hợp
+Print "Điểm lớn nhất:", maxPoint.x, maxPoint.y  // In ra điểm lớn nhất
