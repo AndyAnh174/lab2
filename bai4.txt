@@ -1,0 +1,39 @@
+a)
+BruteForceCount(a)
+    count = 0
+    for i từ 0 đến n - 2:
+        for j từ i + 1 đến n - 1:
+            if a[i] > a[j]:
+                count = count + 1
+    trả về count
+
+b)
+MergeAndCount(aL, aR)
+    count = 0
+    i = 0, j = 0
+    while i < độ dài của aL và j < độ dài của aR:
+        if aL[i] > aR[j]:
+            count = count + (độ dài của aL - i)
+            j = j + 1
+        else:
+            i = i + 1
+    trả về count
+
+DivideAndCount(a)
+    if kích thước của a == 1:
+        trả về 0 và a
+    mid = kích thước của a / 2
+    aL là mảng từ a[0] đến a[mid - 1]
+    aR là mảng từ a[mid] đến a[kích thước của a - 1]
+    
+    (nL, sorted_aL) = DivideAndCount(aL)
+    (nR, sorted_aR) = DivideAndCount(aR)
+    
+    nLR = MergeAndCount(sorted_aL, sorted_aR)
+    
+    merged là mảng kích thước của a
+    
+    merged = merge(sorted_aL, sorted_aR)
+    
+    trả về nL + nR + nLR và merged
+

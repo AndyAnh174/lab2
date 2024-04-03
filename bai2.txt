@@ -1,0 +1,53 @@
+Pseodocode:
+function binarySearch(arr, left, right, x)
+    while left <= right do
+        mid = left + (right - left) / 2
+        if arr[mid] = x then
+            return mid
+        else if arr[mid] < x then
+            left = mid + 1
+        else
+            right = mid - 1
+    end while
+    return -1 // Không tìm thấy x trong mảng
+
+function findInInfiniteArray(arr, x)
+    left = 0
+    right = 1
+    while arr[right] < x do
+        left = right
+        right = right * 2
+    end while
+    return binarySearch(arr, left, right, x)
+
+// Example usage:
+arr là mảng vô hạn đã được sắp xếp
+x là giá trị cần tìm kiếm
+index = findInInfiniteArray(arr, x)
+if index != -1 then
+    output "Found at index: " + index
+else
+    output "Not found"
+
+Giải Thích
+     Hàm binarySearch(arr, left, right, x):
+        Hàm này thực hiện tìm kiếm nhị phân trong một phần của mảng được chỉ định từ chỉ mục left đến chỉ mục right.
+        Sử dụng một vòng lặp while để thực hiện tìm kiếm nhị phân:
+            Tính chỉ mục của phần tử giữa (mid) bằng cách lấy trung bình cộng của left và right.
+            So sánh giá trị của phần tử giữa với giá trị x:
+                Nếu giá trị của phần tử giữa bằng x, trả về chỉ mục của phần tử này.
+                Nếu giá trị của phần tử giữa nhỏ hơn x, di chuyển left sang phải của mid và tiếp tục tìm kiếm trong nửa phải của mảng.
+                Nếu giá trị của phần tử giữa lớn hơn x, di chuyển right sang trái của mid và tiếp tục tìm kiếm trong nửa trái của mảng.
+        Nếu không tìm thấy x trong phần của mảng này, trả về -1.
+
+    Hàm findInInfiniteArray(arr, x):
+        Hàm này tìm kiếm vị trí của giá trị x trong mảng vô hạn.
+        Bắt đầu với left = 0 và right = 1.
+        Sử dụng một vòng lặp while để tăng giá trị của right lên gấp đôi cho đến khi arr[right] >= x. Điều này đảm bảo rằng chúng ta đang nằm trong phần tử có giá trị lớn hơn hoặc bằng x.
+        Sau khi đã xác định phạm vi chứa x, gọi hàm binarySearch để tìm vị trí cụ thể của x trong phạm vi từ left đến right.
+
+    Ví dụ sử dụng:
+        Trong phần sử dụng ví dụ, chúng ta đưa ra một mảng đầu vào và giá trị cần tìm kiếm x.
+        Gọi hàm findInInfiniteArray() để tìm vị trí của x trong mảng và in ra kết quả tìm kiếm.
+
+Thuật toán này có độ phức tạp thời gian O(log n), với n là vị trí của giá trị x trong mảng, bởi vì chúng ta thực hiện tìm kiếm nhị phân trên một phạm vi có độ dài log n.

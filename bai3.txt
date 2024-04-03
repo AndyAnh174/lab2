@@ -1,0 +1,33 @@
+function find_fixed_point(arr)
+    left = 0
+    right = arr.length - 1
+    
+    while left <= right
+        mid = left + (right - left) / 2
+        
+        if arr[mid] == mid
+            return mid
+        else if arr[mid] < mid
+            left = mid + 1
+        else
+            right = mid - 1
+    
+    return -1
+
+    Khởi tạo biến và phạm vi tìm kiếm:
+        left được gán giá trị 0, đây là chỉ số bắt đầu của phần mảng cần xem xét.
+        right được gán giá trị arr.length - 1, đây là chỉ số kết thúc của phần mảng cần xem xét. Mảng được đánh số từ 0 đến arr.length - 1.
+
+    Vòng lặp tìm kiếm nhị phân:
+        Vòng lặp while được sử dụng để thực hiện tìm kiếm nhị phân trong mảng.
+        Trong mỗi lần lặp, ta tính chỉ số giữa mid của phần mảng đang xem xét bằng cách lấy trung bình của left và right.
+
+    Kiểm tra điều kiện:
+        Nếu arr[mid] bằng mid, đó có nghĩa là ta đã tìm thấy một fixed point tại vị trí mid, và ta trả về mid.
+        Nếu arr[mid] nhỏ hơn mid, điều này chỉ ra rằng các giá trị trong phần mảng bên trái mid đều nhỏ hơn chỉ số của chúng. Do đó, ta di chuyển left sang phải mid + 1 để tiếp tục tìm kiếm bên phải của mid.
+        Nếu arr[mid] lớn hơn mid, điều này chỉ ra rằng các giá trị trong phần mảng bên phải mid đều lớn hơn chỉ số của chúng. Do đó, ta di chuyển right sang trái mid - 1 để tiếp tục tìm kiếm bên trái của mid.
+
+    Trả về kết quả:
+        Nếu không tìm thấy fixed point sau khi vòng lặp kết thúc (điều kiện left > right), ta trả về -1 để chỉ ra rằng không có fixed point nào trong mảng đã cho.
+
+Trong tổng thể, thuật toán này sử dụng phương pháp tìm kiếm nhị phân để hiệu quả tìm kiếm fixed point trong một mảng đã sắp xếp.

@@ -1,0 +1,47 @@
+pseudocode
+function removeDuplicates(arr):
+    seen <- empty unordered set
+    newArr <- empty array
+
+    for each num in arr do:
+        if num is not in seen then:
+            add num to newArr
+            add num to seen
+
+    return newArr
+
+function main():
+    n <- input from user
+    arr <- array of size n
+
+    for i from 0 to n-1 do:
+        arr[i] <- input from user
+
+    start <- current time
+
+    result <- removeDuplicates(arr)
+
+    stop <- current time
+    duration <- stop - start
+
+    for each num in result do:
+        output num
+
+    output duration in microseconds
+giải thích:
+    Khởi tạo biến:
+        seen là một tập hợp không thứ tự để theo dõi các phần tử đã xuất hiện trong mảng.
+        newArr là một mảng rỗng để lưu trữ các phần tử không trùng lặp.
+
+    Duyệt qua mảng gốc arr:
+        Với mỗi phần tử num trong mảng arr, thực hiện các bước sau:
+
+    Kiểm tra xem phần tử đã xuất hiện chưa:
+        Nếu num không có trong tập hợp seen (tức là nó chưa xuất hiện trước đó), tiến hành thêm nó vào mảng newArr và thêm nó vào tập hợp seen để đánh dấu là đã xuất hiện.
+
+    Trả về mảng mới không chứa phần tử trùng lặp:
+        Sau khi duyệt qua toàn bộ mảng arr, mảng newArr sẽ chứa các phần tử không trùng lặp. Trả về mảng này.
+
+Sau khi thực hiện thuật toán removeDuplicates, ta sẽ có một mảng mới chứa các phần tử không trùng lặp từ mảng ban đầu.
+
+Đối với hàm main, nó sẽ nhận đầu vào từ người dùng, gọi hàm removeDuplicates, và sau đó xuất ra kết quả và thời gian thực hiện của thuật toán.
