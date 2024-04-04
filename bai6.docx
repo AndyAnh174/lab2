@@ -36,3 +36,13 @@ Function findMax(points, left, right):
 points = [ {1, 2}, {5, 3}, {7, 8}, {4, 6}, {9, 1} ]  // Tập hợp các điểm
 maxPoint = findMax(points, 0, points.size() - 1)  // Tìm điểm lớn nhất trong tập hợp
 Print "Điểm lớn nhất:", maxPoint.x, maxPoint.y  // In ra điểm lớn nhất
+C)
+Phương trình truy hồi:
+T(n) = 2T(n/2) + O(n)
+Giải thích:
+T(n): Độ phức tạp thời gian để tìm điểm lớn nhất trong tập hợp n điểm.
+2T(n/2): Độ phức tạp thời gian để thực hiện hai cuộc gọi đệ quy trên hai tập hợp con có n/2 điểm.
+O(n): Độ phức tạp thời gian để chia tập hợp và so sánh hai điểm lớn nhất.
+Độ phức tạp:
+
+Giải phương trình truy hồi T(n) = 2T(n/2) + O(n), ta có: T(n) = O(n log n).
