@@ -1,3 +1,13 @@
+a) 
+Nếu sử dụng phương pháp vét cạn để tìm điểm lớn nhất bằng cách so sánh tất cả các cặp điểm, độ phức tạp của thuật toán sẽ là O(n2)O(n2), với nn là số lượng điểm. Điều này xuất phát từ việc phải so sánh mỗi điểm với tất cả các điểm còn lại trong tập hợp để xác định liệu nó có lớn nhất hay không.
+    Vòng lặp ngoài: Trong thuật toán, có một vòng lặp duyệt qua từng điểm trong danh sách điểm. Vòng lặp này thực hiện nn lần, với nn là số lượng điểm.
+
+    Vòng lặp bên trong: Trong mỗi vòng lặp ngoài, có một vòng lặp bên trong duyệt qua từng điểm khác trong danh sách điểm. Vòng lặp bên trong cũng thực hiện nn lần cho mỗi vòng lặp ngoài.
+
+    So sánh điểm: Trong vòng lặp bên trong, chúng ta cần thực hiện một số lần so sánh để kiểm tra xem điểm đang xem xét có lớn nhất không. Đối với mỗi điểm, chúng ta cần so sánh với tất cả các điểm khác trong danh sách. Do đó, số lần so sánh trong vòng lặp bên trong là n−1n−1.
+
+Tổng cộng, số lần so sánh được thực hiện là n×(n−1)n×(n−1), tức là O(n^2)O(n^2). Điều này là do mỗi điểm trong danh sách cần được so sánh với tất cả các điểm còn lại để xác định xem nó có lớn nhất hay không. Do đó, độ phức tạp của thuật toán vét cạn là O(n2)O(n2).
+
 b)// Hàm để so sánh và trả về điểm lớn hơn giữa hai điểm
 Function maxPoint(p1, p2):
     maxP.x = max(p1.x, p2.x)  // Lấy giá trị lớn nhất của hai điểm theo trục x

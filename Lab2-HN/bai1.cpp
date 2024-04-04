@@ -50,3 +50,19 @@ int main() {
 
 
 
+/* Function removeDuplicates(arr):
+    // Khởi tạo một unordered_set để lưu trữ các phần tử đã xuất hiện
+    seen = unordered_set<int>()
+    // Khởi tạo một vector mới để lưu trữ các phần tử duy nhất
+    newArr = vector<int>()
+    
+    // Duyệt qua mảng
+    For each num in arr:
+        // Nếu num chưa xuất hiện trước đó
+        If num không nằm trong seen:
+            // Thêm num vào vector mới và vào set seen
+            Push num vào newArr
+            Thêm num vào seen
+    
+    Return newArr
+ */
